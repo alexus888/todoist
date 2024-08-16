@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "todoist"
+version = "0.1.0"
+description = "A CLI interface for the Todoist task manager."
+authors = ["Alexus Wong <alexus888@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "todoist", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+pytest = "^8.3.2"
+pydantic = "^2.8.2"
+rich = "^13.7.1"
+todoist-api-python = "^2.1.7"
+pytz = "^2024.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+todoist = "todoist.cli:entry_point"
+td = "todoist.cli:entry_point"
+
+[tool.pytest.ini_options]
+addopts = "-vvs"
+testpaths = ["src"]
+python_files = ["*_tests.py"]
